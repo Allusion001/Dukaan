@@ -14,7 +14,9 @@ urlpatterns=[
     path('user_info',views.user_items,name="get_user_items"),
     path('create_payment/', views.create_payment, name='create_payment'),
     path('execute_payment/', views.execute_payment, name='execute_payment'),
-    path('payment_failed', views.payment_failed, name='payment_failed')
+    path('payment_failed', views.payment_failed, name='payment_failed'),
+    path('register/', views.registerUser, name='register_user')
+
 
 
 ]

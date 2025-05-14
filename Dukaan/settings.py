@@ -33,10 +33,11 @@ SECRET_KEY = "django-insecure-)2t1!@w)n9d6p5rkht(9xf9xg@=jbh@a1c_5(t)mju20kuhnw3
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['*',"http://dukaan-glbb.onrender.com","http://localhost:5173"] 
+ALLOWED_HOSTS = ['*',"http://dukaan-glbb.onrender.com","http://localhost:5173","https://dukaan-app-frontend.onrender.com"] 
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://dukaan-app-frontend.onrender.com",
 ]
 
 

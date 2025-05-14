@@ -17,10 +17,12 @@ from django.http import JsonResponse
 import uuid
 from decimal import Decimal
 from django.conf import settings
+from django.contrib.auth import get_user_model
 
 
 
 BASE_URL=settings.REACT_BASE_URL
+User = get_user_model()
 
 # Create your views here.
 
@@ -189,5 +191,41 @@ def payment_checkout(request):
 
 def payment_failed(request):
     return render(request, 'payment_failed.html')
+
+
+@api_view(['POST'])
+def registerUser(request):
+    try:
+        
+        username=request.data.get('username')
+        password=request.data.get('password')
+        firstName=request.data.get('firstName')
+        lastName=request.data.get('lastName')
+        email=request.data.get('email')
+        city=request.data.get('city')
+        country=request.data.get('country')
+        phone=request.data.get('phone')
+
+        user = User(
+            username=username,
+            password=password,
+            first_name=firstName,
+            last_name=lastName,
+            email=email,
+            city=city,
+            phone=phone,
+            
+        )
+        user.save()
+        
+
+        serializer=UserSerializer(user)
+        return Response(serializer.data)
+
+
+    
+    except Exception as e:
+          print(e)
+          return Response({'error':str(e)},status=300)
 
 
