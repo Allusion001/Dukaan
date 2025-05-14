@@ -216,6 +216,7 @@ def registerUser(request):
             phone=phone,
             
         )
+        user.set_password(password)
         user.save()
         
 
